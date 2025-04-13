@@ -78,7 +78,7 @@ void loop()
 	Serial.print("\n");
 	#endif
 	
-	#ifdef DEBUG_VALS
+	#ifdef DEBUG
 	Serial.print("VALS = ");
 	for (int i = 0; i < dataSize; i++)
 	{
