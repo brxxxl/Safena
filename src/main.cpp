@@ -14,10 +14,11 @@
 void setup()
 {
 	Serial.begin(9600);
-	SPI.begin(15, 19, 20, 21); // SCK, MISO, MOSI, CS
+	SPI.begin(15, 19, 20); // SCK, MISO, MOSI, CS
 
 	// Initalize the  data ready and chip select pins:
 	pinMode(CHIP_SELECT_PIN, OUTPUT);
+	digitalWrite(CHIP_SELECT_PIN, LOW);
 
 	// Configure ADXL355:
 	writeRegister(RANGE, RANGE_2G);			// 2G

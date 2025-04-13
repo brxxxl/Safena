@@ -34,10 +34,10 @@ const int WRITE_BYTE = 0x00;
 void writeRegister(byte thisRegister, byte thisValue)
 {
 	byte dataToSend = (thisRegister << 1) | WRITE_BYTE;
-	digitalWrite(CHIP_SELECT_PIN, LOW);
+	// digitalWrite(CHIP_SELECT_PIN, LOW);
 	SPI.transfer(dataToSend);
 	SPI.transfer(thisValue);
-	digitalWrite(CHIP_SELECT_PIN, HIGH);
+	// digitalWrite(CHIP_SELECT_PIN, HIGH);
 }
 
 /*
@@ -48,10 +48,10 @@ unsigned int readRegistry(byte thisRegister)
 	unsigned int result = 0;
 	byte dataToSend = (thisRegister << 1) | READ_BYTE;
 
-	digitalWrite(CHIP_SELECT_PIN, LOW);
+	// digitalWrite(CHIP_SELECT_PIN, LOW);
 	SPI.transfer(dataToSend);
 	result = SPI.transfer(0x00);
-	digitalWrite(CHIP_SELECT_PIN, HIGH);
+	// digitalWrite(CHIP_SELECT_PIN, HIGH);
 	return result;
 }
 
@@ -60,12 +60,12 @@ unsigned int readRegistry(byte thisRegister)
  */
 void readMultipleData(int *addresses, int dataSize, int *readedData)
 {
-	digitalWrite(CHIP_SELECT_PIN, LOW);
+	// digitalWrite(CHIP_SELECT_PIN, LOW);
 	for (int i = 0; i < dataSize; i = i + 1)
 	{
 		byte dataToSend = (addresses[i] << 1) | READ_BYTE;
 		SPI.transfer(dataToSend);
 		readedData[i] = SPI.transfer(0x00);
 	}
-	digitalWrite(CHIP_SELECT_PIN, HIGH);
+	// digitalWrite(CHIP_SELECT_PIN, HIGH);
 }
