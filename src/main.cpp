@@ -14,7 +14,7 @@
 void setup()
 {
 	Serial.begin(9600);
-	SPI.begin(18, 5, 4, 17); // SCK, MISO, MOSI, CS
+	SPI.begin(18, 19, 23, 5); // SCK, MISO, MOSI, CS
 
 	// Initalize the  data ready and chip select pins:
 	pinMode(CHIP_SELECT_PIN, OUTPUT);
@@ -42,6 +42,8 @@ void loop()
 	int zdata = (axisMeasures[6] >> 4) + (axisMeasures[7] << 4) + (axisMeasures[8] << 12);
 
 	// Apply two complement
+	
+	/*
 	if (xdata >= 0x80000)
 	{
 		xdata = ~xdata + 1;
@@ -54,6 +56,7 @@ void loop()
 	{
 		zdata = ~zdata + 1;
 	}
+	*/
 
 	// Print axis
 	Serial.print("X=");
@@ -69,5 +72,5 @@ void loop()
 	Serial.print("\n");
 
 	// Next data in 100 milliseconds
-	delay(100);
+	delay(1000);
 }

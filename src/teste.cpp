@@ -2,10 +2,10 @@
 #include <Arduino.h>
 
 // Define VSPI pins based on your initial output
-#define VSPI_MISO 2
-#define VSPI_MOSI 4
-#define VSPI_SCLK 15
-#define VSPI_SS 16 // Adjust this if your CS pin is different
+#define VSPI_MISO 19
+#define VSPI_MOSI 23
+#define VSPI_SCLK 18
+#define VSPI_SS 5 // Adjust this if your CS pin is different
 
 // function prototypes;
 uint8_t vspiSend_ReceiveByte(byte stuff);

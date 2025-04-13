@@ -5,7 +5,7 @@
 #define DEBUG
 
 // Pins used for the connection with the sensor
-const int CHIP_SELECT_PIN = 17; // GPIO17 for CS pin
+const int CHIP_SELECT_PIN = 5; // GPIO5 for CS pin
 
 // Memory register addresses:
 const int XDATA3 = 0x08;
