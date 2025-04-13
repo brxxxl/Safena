@@ -51,8 +51,8 @@ unsigned int readRegistry(byte thisRegister)
 	byte dataToSend = (thisRegister << 1) | READ_BYTE;
 
 	digitalWrite(CHIP_SELECT_PIN, LOW);
-	// SPI.transfer(dataToSend);
-	result = SPI.transfer(dataToSend);// 0x00);
+	SPI.transfer(dataToSend);
+	result = SPI.transfer(0x00);
 	digitalWrite(CHIP_SELECT_PIN, HIGH);
 	return result;
 }
@@ -60,7 +60,7 @@ unsigned int readRegistry(byte thisRegister)
 /*
  * Read multiple registries
  */
-void readMultipleData(int *addresses, int dataSize, int *readedData)
+void readMultipleData(int addresses[], int dataSize, int readedData[])
 {
 	digitalWrite(CHIP_SELECT_PIN, LOW);
 	for (int i = 0; i < dataSize; i = i + 1)
@@ -71,8 +71,8 @@ void readMultipleData(int *addresses, int dataSize, int *readedData)
 		#endif // DEBUG
 
 		byte dataToSend = (addresses[i] << 1) | READ_BYTE;
-		// SPI.transfer(dataToSend);
-		readedData[i] = SPI.transfer(dataToSend);// 0x00);
+		SPI.transfer(dataToSend);
+		readedData[i] = SPI.transfer(0x00);
 
 		#ifdef DEBUG_VALS
 		Serial.print("\nData: ");
