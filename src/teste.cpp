@@ -1,4 +1,3 @@
-/*
 #include <SPI.h>
 #include <Arduino.h>
 
@@ -105,4 +104,3 @@ uint8_t vspiSend_ReceiveByte(byte stuff)
 	vspi->endTransaction();
 	return retnd_result;
 }
-*/

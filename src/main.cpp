@@ -20,7 +20,7 @@ void setup()
 	pinMode(CHIP_SELECT_PIN, OUTPUT);
 
 	// Configure ADXL355:
-	writeRegister(RANGE, RANGE_8G);			// 2G
+	writeRegister(RANGE, RANGE_2G);			// 2G
 	writeRegister(POWER_CTL, MEASURE_MODE); // Enable measure mode
 
 	// Give the sensor time to set up:
@@ -56,7 +56,6 @@ void loop()
 	}
 
 	// Print axis
-	#ifndef DEBUG
 	Serial.print("X=");
 	Serial.print(xdata);
 	Serial.print("\t");
@@ -68,24 +67,6 @@ void loop()
 	Serial.print("Z=");
 	Serial.print(zdata);
 	Serial.print("\n");
-	#endif
-	
-	#ifdef DEBUG
-	Serial.print("VALS = ");
-	for (int i = 0; i < dataSize; i++)
-	{
-		if (i == 0)
-		{
-			Serial.print(axisMeasures[i]);
-		}
-		else
-		{
-			Serial.print(", ");
-			Serial.print(axisMeasures[i]);
-		}
-	}
-	Serial.print("\n");
-	#endif // DEBUG
 
 	// Next data in 100 milliseconds
 	delay(100);
