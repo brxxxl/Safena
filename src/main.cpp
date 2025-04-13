@@ -18,7 +18,6 @@ void setup()
 
 	// Initalize the  data ready and chip select pins:
 	pinMode(CHIP_SELECT_PIN, OUTPUT);
-	digitalWrite(CHIP_SELECT_PIN, LOW);
 
 	// Configure ADXL355:
 	writeRegister(RANGE, RANGE_2G);			// 2G
