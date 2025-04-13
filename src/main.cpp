@@ -14,7 +14,7 @@
 void setup()
 {
 	Serial.begin(9600);
-	SPI.begin();
+	SPI.begin(15, 19, 20, 21); // SCK, MISO, MOSI, CS
 
 	// Initalize the  data ready and chip select pins:
 	pinMode(CHIP_SELECT_PIN, OUTPUT);
