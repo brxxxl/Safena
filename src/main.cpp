@@ -64,6 +64,7 @@ void loop()
 	}
 
 	// Print axis
+	/*
 	Serial.print("X=");
 	Serial.print(xdata);
 	Serial.print("\t");
@@ -75,7 +76,23 @@ void loop()
 	Serial.print("Z=");
 	Serial.print(zdata);
 	Serial.print("\n");
+	*/
 
-	// Next data in 1000  milliseconds
-	delay(100);
+	Serial.print("VALS = ");
+	for (int i = 0; i < dataSize; i++)
+	{
+		if (i == 0)
+		{
+			Serial.print(axisMeasures[i]);
+		}
+		else
+		{
+			Serial.print(", ");
+			Serial.print(axisMeasures[i]);
+		}
+	}
+	Serial.print("\n");
+
+	// Next data in 1000 milliseconds
+	delay(1000);
 }
