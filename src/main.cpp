@@ -76,6 +76,6 @@ void loop()
 	Serial.print(zdata);
 	Serial.print("\n");
 
-	// Next data in 100 milliseconds
+	// Next data in 1000  milliseconds
 	delay(100);
 }

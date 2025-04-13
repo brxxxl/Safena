@@ -3,7 +3,7 @@
 #include <Wire.h>
 
 // Pins used for the connection with the sensor
-const int CHIP_SELECT_PIN = 16; // GPIO16 for CS pin
+const int CHIP_SELECT_PIN = 17; // GPIO16 for CS pin
 
 // Memory register addresses:
 const int XDATA3 = 0x08;
