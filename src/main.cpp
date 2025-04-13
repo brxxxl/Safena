@@ -18,17 +18,9 @@ void setup()
 
 	// Initalize the  data ready and chip select pins:
 	pinMode(CHIP_SELECT_PIN, OUTPUT);
-	pinMode(16, OUTPUT);
-	pinMode(15, OUTPUT);
-	pinMode(4, OUTPUT);
-	pinMode(2, OUTPUT);
-	digitalWrite(16, LOW);
-	digitalWrite(15, LOW);
-	digitalWrite(4, LOW);
-	digitalWrite(2, LOW);
 
 	// Configure ADXL355:
-	writeRegister(RANGE, RANGE_2G);			// 2G
+	writeRegister(RANGE, RANGE_8G);			// 2G
 	writeRegister(POWER_CTL, MEASURE_MODE); // Enable measure mode
 
 	// Give the sensor time to set up:
@@ -95,6 +87,6 @@ void loop()
 	Serial.print("\n");
 	#endif // DEBUG
 
-	// Next data in 1000 milliseconds
+	// Next data in 100 milliseconds
 	delay(100);
 }

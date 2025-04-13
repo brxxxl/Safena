@@ -60,7 +60,7 @@ unsigned int readRegistry(byte thisRegister)
 /*
  * Read multiple registries
  */
-void readMultipleData(int addresses[], int dataSize, int readedData[])
+void readMultipleData(int addresses[], int dataSize, int *readedData)
 {
 	digitalWrite(CHIP_SELECT_PIN, LOW);
 	for (int i = 0; i < dataSize; i = i + 1)
