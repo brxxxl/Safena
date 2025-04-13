@@ -64,7 +64,7 @@ void loop()
 	}
 
 	// Print axis
-	/*
+	#ifndef DEBUG
 	Serial.print("X=");
 	Serial.print(xdata);
 	Serial.print("\t");
@@ -76,8 +76,9 @@ void loop()
 	Serial.print("Z=");
 	Serial.print(zdata);
 	Serial.print("\n");
-	*/
-
+	#endif
+	
+	#ifdef DEBUG_VALS
 	Serial.print("VALS = ");
 	for (int i = 0; i < dataSize; i++)
 	{
@@ -92,6 +93,7 @@ void loop()
 		}
 	}
 	Serial.print("\n");
+	#endif // DEBUG
 
 	// Next data in 1000 milliseconds
 	delay(1000);

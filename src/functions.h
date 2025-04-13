@@ -2,6 +2,8 @@
 #include <Arduino.h>
 #include <Wire.h>
 
+#define DEBUG
+
 // Pins used for the connection with the sensor
 const int CHIP_SELECT_PIN = 17; // GPIO16 for CS pin
 
@@ -63,9 +65,20 @@ void readMultipleData(int *addresses, int dataSize, int *readedData)
 	digitalWrite(CHIP_SELECT_PIN, LOW);
 	for (int i = 0; i < dataSize; i = i + 1)
 	{
+		#ifdef DEBUG
+		Serial.print("Reading address: ");
+		Serial.print(addresses[i], HEX);
+		#endif // DEBUG
+
 		byte dataToSend = (addresses[i] << 1) | READ_BYTE;
-		SPI.transfer(dataToSend);
-		readedData[i] = SPI.transfer(0x00);
+		// SPI.transfer(dataToSend);
+		readedData[i] = SPI.transfer(dataToSend);// 0x00);
+
+		#ifdef DEBUG
+		Serial.print("\nData: ");
+		Serial.print(readedData[i], HEX);
+		Serial.print("\n");
+		#endif // DEBUG
 	}
 	digitalWrite(CHIP_SELECT_PIN, HIGH);
 }
